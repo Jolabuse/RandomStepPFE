@@ -39,7 +39,7 @@ def newsImpact(active_news, currentTick):
 
 
 """
-note company entre 0 et 10, moins d'impact que l'état du marché
+note company entre -5 et 5, moins d'impact que l'état du marché
 """
 
 
@@ -47,13 +47,7 @@ def getGrowthProbability(noteCompany, newsCompany):
     growthProbability = 0.5
     growthProbability += newsCompany
     # console.log("Note Company")
-    if noteCompany < 5:
-        # console.log(-1*0.5*(10-noteCompany)/70)
-        growthProbability -= 0.5 * (10 - noteCompany) / 50
-    else:
-        if noteCompany > 5:
-            # console.log(0.5*(noteCompany)/70)
-            growthProbability += 0.5 * noteCompany / 50
+    growthProbability += noteCompany/50
     return growthProbability
 
 
