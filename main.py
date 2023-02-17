@@ -25,12 +25,8 @@ def newsImpact(active_news, currentTick):
         if active_news[i].endTick > currentTick:
             x = currentTick - active_news[i].startTick
             if i < 3:
-                if active_news[i].impact > 0:
-                    final_impact += (newsEvolution(x) / 10) \
-                                    * (1 + active_news[i].impact/10)*(1-i/3)
-                else:
-                    final_impact -= (newsEvolution(x) / 10) \
-                                    * (1 + (-1*active_news[i].impact)/10)*(1-i/3)
+                final_impact += (newsEvolution(x)*active_news[i]/50)*(1-i/3)# A MODIF DANS LA DOC
+
 
         else:
             active_news.pop()
